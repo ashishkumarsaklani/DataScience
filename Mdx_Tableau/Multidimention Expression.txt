@@ -1,0 +1,29 @@
+
+22 March
+
+contains 		CONTAINS([Product Name],"3M")
+
+
+24 March
+
+LOD include             { INCLUDE DATEPART('day', [Order Date]):SUM([Sales])}
+LOD fixed 		{ FIXED DATEPART('year', [Order Date]):sum([Sales])}
+% contribution        	sum([Sales])/SUM([Cat sales])
+percust sales		{ INCLUDE [Customer Name]: SUM([Sales])} 
+
+
+
+27 march
+
+index in table          INDEX()
+%sales,			SUM([Sales])/SUM([Total sales])
+LOD exclude             { EXCLUDE [Sub-Category]:AVG([Sales])}
+LOD fixed               { FIXED [Customer ID]:MIN([Order Date])}   
+			IIF([fod]=[Order Date],'New','Existing')
+
+27 apr
+
+refund in year         	SUM (IF ([Total Spend] < 0 
+			AND [Quantity] < 0 
+			AND DATEPART('year',[Date Transacted]) = 2022 )
+			THEN [Quantity] END)

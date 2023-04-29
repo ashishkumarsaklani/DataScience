@@ -1,0 +1,1 @@
+profit % for 2012   =QUERY(A2:P1063,"select (sum(J)/SUM(K))*100 where C  like '%2012%'",-1)

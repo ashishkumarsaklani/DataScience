@@ -1,0 +1,33 @@
+select 	original_title,	tagline,  director 
+from movies 
+order by popularity desc 
+limit 5
+
+
+select * from olympic 
+order by gold_medals desc,
+silver_medals desc,
+bronze_medals desc,
+country
+
+
+select original_title,
+round((vote_count/(vote_count+ 104.0)*vote_average) +(104.0/(104.0+vote_count)*5.97),2) as Weighted_avg_rating
+from movies
+order by Weighted_avg_rating desc,
+original_title
+limit 10
+
+
+SELECT * from employees 
+where lower(last_name) in ('king','taylor','grant')
+order by employee_id 
+
+
+
+select  original_title, director, 
+genres, cast , budget, revenue,
+runtime,  vote_average
+FROM movies
+where lower(keywords) like '%sport%' or lower(keywords) like '%sequel%' or lower(keywords) like '%suspense%'
+
