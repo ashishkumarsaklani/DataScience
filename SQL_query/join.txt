@@ -1,0 +1,37 @@
+=======================join========================
+
+
+select b.booth_number,
+v.vendor_id,
+v.vendor_name,
+v.vendor_type
+
+from booth b
+left join vendor_booth_assignments vba
+on b.booth_number = vba.booth_number
+
+left join vendor v
+on vba.vendor_id =  v.vendor_id
+
+
+
+
+
+=======================corelated sub query========================
+
+
+select * from employee e1
+
+where salary >(select avg(salary) from employee e2 where e1.dep == e2.dep)
+
+
+=======================grouby========================
+
+ column should be in select to use in groupby
+incase we are using any other colum except agregation
+
+we can use numbers to indicate column names from select 
+
+
+
+
